@@ -1,5 +1,8 @@
+# Vim swap files
 *.swp
+*.swo
 
+# Environment variables
 .env
 *.env
 .env.*
