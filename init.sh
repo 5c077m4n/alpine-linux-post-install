@@ -1,0 +1,42 @@
+#!/bin/sh
+
+username="${1:?'A username is required'}"
+alpine_version="${2:-'edge'}"
+
+cat > /etc/apk/repositories <<- EOM
+http://dl-cdn.alpinelinux.org/alpine/${alpine_version}/main
+http://dl-cdn.alpinelinux.org/alpine/${alpine_version}/community
+
+https://ftp.halifax.rwth-aachen.de/alpine/${alpine_version}/main
+https://ftp.halifax.rwth-aachen.de/alpine/${alpine_version}/community
+EOM
+
+cat >> /etc/ssh/sshd_config <<- EOM
+AllowGroups ssh
+DenyGroups root sudo
+DenyUsers root
+EOM
+
+apk update
+apk add sudo git musl-dev gcc vim vim-doc ranger nodejs shellcheck zsh zsh-doc curl curl-doc openssh openssh-doc ufw ufw-doc ufw-openrc
+
+useradd -m -U -s /bin/zsh -h "/home/${username}" "${username}"
+addgroup ssh
+addgroup sudo
+adduser "${username}" sudo
+echo '%sudo ALL=(ALL) ALL' > /etc/sudoers.d/sudo
+sudo -l "${username}"
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+cp ./assets/.vimrc ~/.vimrc
+vim +PlugInstall +qall
+
+cp ./assets/rc.conf ~/.config/ranger/rc.conf
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sudo sh
+
+sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting"
+cp ./assets/.zshrc ~/.zshrc
+. "${HOME}/.zshrc"
