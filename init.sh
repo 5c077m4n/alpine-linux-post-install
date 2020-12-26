@@ -12,7 +12,6 @@ https://ftp.halifax.rwth-aachen.de/alpine/${alpine_version}/community
 EOM
 
 cat >> /etc/ssh/sshd_config <<- EOM
-AllowGroups ssh
 DenyGroups root sudo
 DenyUsers root
 EOM
@@ -21,7 +20,6 @@ apk update
 apk add sudo git musl-dev gcc vim vim-doc ranger nodejs shellcheck zsh zsh-doc curl curl-doc openssh openssh-doc ufw ufw-doc ufw-openrc
 
 useradd -m -U -s /bin/zsh -h "/home/${username}" "${username}"
-addgroup ssh
 addgroup sudo
 adduser "${username}" sudo
 echo '%sudo ALL=(ALL) ALL' > /etc/sudoers.d/sudo
