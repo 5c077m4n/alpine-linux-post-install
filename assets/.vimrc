@@ -2,6 +2,9 @@
 " => Basic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Make vim cwd the file that is being edited
+autocmd BufEnter * silent! lcd %:p:h
+
 " Line numbering
 set number
 set relativenumber
