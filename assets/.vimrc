@@ -221,6 +221,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'townk/vim-autoclose'
 Plug 'tpope/vim-surround'
 Plug 'itspriddle/vim-shellcheck'
+Plug 'mbbill/undotree'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json']
@@ -256,6 +257,13 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+" Undotree config
+nnoremap <leader>u :UndotreeToggle<CR>
+if has("persistent_undo")
+    set undodir=$HOME."/.vim/.undodir"
+    set undofile
+endif
+
 " Vim racer shortcuts
 let g:racer_cmd = "/home/roee/.cargo/bin/racer"
 let g:racer_insert_paren = 1
@@ -275,6 +283,11 @@ let g:racer_cmd = "/home/roee/.cargo/bin/racer"
 " FZF
 nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <leader>f :Rg<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+\}
 
 " Syntastic settings
 let g:syntastic_always_populate_loc_list = 1
