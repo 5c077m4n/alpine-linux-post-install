@@ -157,8 +157,8 @@ nnoremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>
 " Switch CWD to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
 
-map <C-]> :tabn<CR>
-map <C-[> :tabp<CR>
+nnoremap <leader>] :tabn<CR>
+nnoremap <leader>[ :tabp<CR>
 
 nnoremap <leader>tl :tabs<CR>
 nnoremap <leader>td :tab split<CR>
