@@ -264,17 +264,21 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
 
-" GoTo code navigation.
+" Coc TSServer code navigation
 augroup TSServer
-	autocmd!
-	autocmd FileType typescript,javascript nnoremap <silent> gd <Plug>(coc-definition)
-	autocmd FileType typescript,javascript nnoremap <silent> gt <Plug>(coc-type-definition)
-	autocmd FileType typescript,javascript nnoremap <silent> gi <Plug>(coc-implementation)
-	autocmd FileType typescript,javascript nnoremap <silent> gr <Plug>(coc-references)
-	" Remap keys for applying codeAction to the current buffer.
-	autocmd FileType typescript,javascript nnoremap <leader>ac <Plug>(coc-codeaction)
-	" Apply AutoFix to problem on the current line.
-	autocmd FileType typescript,javascript nnoremap <leader>qf <Plug>(coc-fix-current)
+    autocmd!
+
+    autocmd FileType typescript,javascript nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+    autocmd FileType typescript,javascript nmap <silent> g] <Plug>(coc-diagnostic-next)
+
+    autocmd FileType typescript,javascript nmap <silent> gd <Plug>(coc-definition)
+    autocmd FileType typescript,javascript nmap <silent> gt <Plug>(coc-type-definition)
+    autocmd FileType typescript,javascript nmap <silent> gi <Plug>(coc-implementation)
+    autocmd FileType typescript,javascript nmap <silent> gr <Plug>(coc-references)
+    " Remap keys for applying codeAction to the current buffer.
+    autocmd FileType typescript,javascript nmap <leader>ac <Plug>(coc-codeaction)
+    " Apply AutoFix to problem on the current line.
+    autocmd FileType typescript,javascript nmap <leader>qf <Plug>(coc-fix-current)
 augroup END
 
 " Ranger config
