@@ -173,6 +173,7 @@ nnoremap <leader>tQ :tabonly<CR>
 " Tab sizing
 set tabstop=4
 set shiftwidth=4
+set ai
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
