@@ -1,9 +1,8 @@
+set nocompatible " must be first line
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Basic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Break away from vi
-set nocompatible
 
 " Make vim cwd the file that is being edited
 autocmd BufEnter * silent! lcd %:p:h
