@@ -41,11 +41,11 @@ syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
+	set t_Co=256
 endif
 
 try
-    colorscheme desert
+	colorscheme desert
 catch
 endtry
 
@@ -53,10 +53,10 @@ set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
+	set guioptions-=T
+	set guioptions-=e
+	set t_Co=256
+	set guitablabel=%M\ %t
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -85,9 +85,9 @@ set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
+	set wildignore+=.git\*,.hg\*,.svn\*
 else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+	set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
 " A buffer becomes hidden when it is abandoned
@@ -128,7 +128,7 @@ set tm=500
 
 " Properly disable sound on errors on MacVim
 if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
+	autocmd GUIEnter * set vb t_vb=
 endif
 
 " Add a bit extra margin to the left
@@ -185,23 +185,23 @@ vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
+	nmap <D-j> <M-j>
+	nmap <D-k> <M-k>
+	vmap <D-j> <M-j>
+	vmap <D-k> <M-k>
 endif
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    silent! %s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	silent! %s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.ts,*.sql,*.py,*.sh, :call CleanExtraSpaces()
+	autocmd BufWritePre *.txt,*.js,*.ts,*.sql,*.py,*.sh, :call CleanExtraSpaces()
 endif
 
 
@@ -223,11 +223,11 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! GetPlugInstallDir()
-        if has("nvim")
-                return "~/.config/nvim/plugged"
-        else
-                return "~/.vim/plugged"
-        endif
+		if has("nvim")
+				return "~/.config/nvim/plugged"
+		else
+				return "~/.vim/plugged"
+		endif
 endfunction
  
 call plug#begin(GetPlugInstallDir())
@@ -265,15 +265,15 @@ endif
 
 " GoTo code navigation.
 augroup TSServer
-    autocmd!
-    autocmd FileType typescript,javascript nnoremap <silent> gd <Plug>(coc-definition)
-    autocmd FileType typescript,javascript nnoremap <silent> gt <Plug>(coc-type-definition)
-    autocmd FileType typescript,javascript nnoremap <silent> gi <Plug>(coc-implementation)
-    autocmd FileType typescript,javascript nnoremap <silent> gr <Plug>(coc-references)
-    " Remap keys for applying codeAction to the current buffer.
-    autocmd FileType typescript,javascript nnoremap <leader>ac <Plug>(coc-codeaction)
-    " Apply AutoFix to problem on the current line.
-    autocmd FileType typescript,javascript nnoremap <leader>qf <Plug>(coc-fix-current)
+	autocmd!
+	autocmd FileType typescript,javascript nnoremap <silent> gd <Plug>(coc-definition)
+	autocmd FileType typescript,javascript nnoremap <silent> gt <Plug>(coc-type-definition)
+	autocmd FileType typescript,javascript nnoremap <silent> gi <Plug>(coc-implementation)
+	autocmd FileType typescript,javascript nnoremap <silent> gr <Plug>(coc-references)
+	" Remap keys for applying codeAction to the current buffer.
+	autocmd FileType typescript,javascript nnoremap <leader>ac <Plug>(coc-codeaction)
+	" Apply AutoFix to problem on the current line.
+	autocmd FileType typescript,javascript nnoremap <leader>qf <Plug>(coc-fix-current)
 augroup END
 
 " Ranger config
@@ -300,13 +300,13 @@ let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let g:racer_insert_paren = 1
 let g:racer_experimental_completer = 1
 augroup Racer
-    autocmd!
-    autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
-    autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
-    autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
-    autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
-    autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
-    autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
+	autocmd!
+	autocmd FileType rust nmap <buffer> gd		   <Plug>(rust-def)
+	autocmd FileType rust nmap <buffer> gs		   <Plug>(rust-def-split)
+	autocmd FileType rust nmap <buffer> gx		   <Plug>(rust-def-vertical)
+	autocmd FileType rust nmap <buffer> gt		   <Plug>(rust-def-tab)
+	autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+	autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
 augroup END
 set hidden
 
