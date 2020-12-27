@@ -2,6 +2,7 @@
 " => Basic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Break away from vi
 set nocompatible
 
 " Make vim cwd the file that is being edited
@@ -155,8 +156,8 @@ nnoremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>
 " Switch CWD to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
 
-nnoremap <C-]> :tabn<CR>
-nnoremap <C-[> :tabp<CR>
+map <C-]> :tabn<CR>
+map <C-[> :tabp<CR>
 
 nnoremap <leader>tl :tabs<CR>
 nnoremap <leader>td :tab split<CR>
@@ -259,14 +260,14 @@ endif
 " GoTo code navigation.
 augroup TSServer
     autocmd!
-    autocmd FileType typescript,javascript nmap <silent> gd <Plug>(coc-definition)
-    autocmd FileType typescript,javascript nmap <silent> gt <Plug>(coc-type-definition)
-    autocmd FileType typescript,javascript nmap <silent> gi <Plug>(coc-implementation)
-    autocmd FileType typescript,javascript nmap <silent> gr <Plug>(coc-references)
+    autocmd FileType typescript,javascript nnoremap <silent> gd <Plug>(coc-definition)
+    autocmd FileType typescript,javascript nnoremap <silent> gt <Plug>(coc-type-definition)
+    autocmd FileType typescript,javascript nnoremap <silent> gi <Plug>(coc-implementation)
+    autocmd FileType typescript,javascript nnoremap <silent> gr <Plug>(coc-references)
     " Remap keys for applying codeAction to the current buffer.
-    autocmd FileType typescript,javascript nmap <leader>ac <Plug>(coc-codeaction)
+    autocmd FileType typescript,javascript nnoremap <leader>ac <Plug>(coc-codeaction)
     " Apply AutoFix to problem on the current line.
-    autocmd FileType typescript,javascript nmap <leader>qf <Plug>(coc-fix-current)
+    autocmd FileType typescript,javascript nnoremap <leader>qf <Plug>(coc-fix-current)
 augroup END
 
 " Ranger config
