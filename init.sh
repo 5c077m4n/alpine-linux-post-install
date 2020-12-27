@@ -17,8 +17,8 @@ DenyUsers root
 EOM
 
 if [ -x "$(command -v apk)" ]; then
-apk update
-apk add sudo git musl-dev gcc vim vim-doc ranger nodejs shellcheck zsh zsh-doc curl curl-doc openssh openssh-doc ufw ufw-doc ufw-openrc
+	apk update
+	apk add sudo git musl-dev gcc vim vim-doc ranger nodejs shellcheck zsh zsh-doc curl curl-doc openssh openssh-doc ufw ufw-doc ufw-openrc
 elif [ -x "$(command -v apt)" ]; then
 	apt update
 	apt install sudo ufw git build-essentials ranger vim zsh curl openssh
