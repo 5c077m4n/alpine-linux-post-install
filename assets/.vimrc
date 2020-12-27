@@ -155,7 +155,7 @@ nnoremap <leader>] :tabn<CR>
 nnoremap <leader>[ :tabp<CR>
 
 nnoremap <leader>tl :tabs<CR>
-nnoremap <leader>td :tab split<CR>
+nnoremap <leader>tn :tab split<CR>
 nnoremap <leader>tq :tabclose<CR>
 nnoremap <leader>tQ :tabonly<CR>
 
