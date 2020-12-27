@@ -143,13 +143,13 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """ Windows
-" A simpler way to move between windows
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-h> <C-W>h
-nnoremap <C-l> <C-W>l
-nnoremap <C-n> <C-W>n
-nnoremap <C-q> <C-W>q
+" A shorter way to move between windows
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
+nmap <C-n> <C-W>n
+nmap <C-q> <C-W>q
 
 nnoremap <leader>] :tabn<CR>
 nnoremap <leader>[ :tabp<CR>
@@ -160,10 +160,10 @@ nnoremap <leader>tq :tabclose<CR>
 nnoremap <leader>tQ :tabonly<CR>
 
 " Opens a new tab with the current buffer's path
-noremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>
+nnoremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>
 
 " Switch CWD to the directory of the open buffer
-noremap <leader>cd :cd %:p:h<cr>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
