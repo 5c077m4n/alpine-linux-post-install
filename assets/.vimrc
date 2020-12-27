@@ -175,6 +175,7 @@ nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
 nmap <C-n> <C-W>n
+nmap <C-N> <C-W>v
 nmap <C-q> <C-W>q
 
 """ Tabs
