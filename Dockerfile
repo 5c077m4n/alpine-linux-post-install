@@ -1,4 +1,4 @@
 FROM alpine:latest
 
 COPY . ./
-ENTRYPOINT [".", "./init.sh"]
+ENTRYPOINT [".", "./init.sh", "test-user"]
