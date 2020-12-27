@@ -284,8 +284,8 @@ call plug#end()
 
 """ Coc
 let g:coc_global_extensions = ['coc-json']
-let l:ts_file_types = ['ts', 'tsx', 'js', 'jsx']
-if index(l:ts_file_types, &filetype) != -1
+let s:ts_file_types = ['ts', 'tsx', 'js', 'jsx']
+if index(s:ts_file_types, &filetype) != -1
 	let g:coc_global_extensions += ['coc-tsserver']
 endif
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
