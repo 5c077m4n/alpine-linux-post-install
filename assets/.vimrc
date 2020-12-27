@@ -151,12 +151,6 @@ nnoremap <C-l> <C-W>l
 nnoremap <C-n> <C-W>n
 nnoremap <C-q> <C-W>q
 
-""" Tabs
-" Opens a new tab with the current buffer's path
-nnoremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>
-" Switch CWD to the directory of the open buffer
-nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
-
 nnoremap <leader>] :tabn<CR>
 nnoremap <leader>[ :tabp<CR>
 
@@ -164,6 +158,12 @@ nnoremap <leader>tl :tabs<CR>
 nnoremap <leader>td :tab split<CR>
 nnoremap <leader>tq :tabclose<CR>
 nnoremap <leader>tQ :tabonly<CR>
+
+" Opens a new tab with the current buffer's path
+noremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>/
+
+" Switch CWD to the directory of the open buffer
+noremap <leader>cd :cd %:p:h<cr>:pwd<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
