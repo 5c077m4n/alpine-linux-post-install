@@ -19,6 +19,10 @@ EOM
 apk update
 apk add sudo git musl-dev gcc vim vim-doc ranger nodejs shellcheck zsh zsh-doc curl curl-doc openssh openssh-doc ufw ufw-doc ufw-openrc
 
+ufw allow proto tcp from any to any port 80,443
+ufw allow proto tcp from 10.100.102.0/24 to any port 22
+ufw enable
+
 useradd -m -U -s /bin/zsh -h "/home/${username}" "${username}"
 addgroup sudo
 adduser "${username}" sudo
@@ -37,4 +41,4 @@ sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/maste
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting"
 cp ./assets/.zshrc ~/.zshrc
-. "${HOME}/.zshrc"
+  "${HOME}/.zshrc"
