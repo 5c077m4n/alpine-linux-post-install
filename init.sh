@@ -16,8 +16,13 @@ DenyGroups root sudo
 DenyUsers root
 EOM
 
+if [ -x "$(command -v apk)" ]; then
 apk update
 apk add sudo git musl-dev gcc vim vim-doc ranger nodejs shellcheck zsh zsh-doc curl curl-doc openssh openssh-doc ufw ufw-doc ufw-openrc
+elif [ -x "$(command -v apt)" ]; then
+	apt update
+	apt install sudo ufw git build-essentials ranger vim zsh curl openssh
+fi
 
 ufw allow proto tcp from any to any port 80,443
 ufw allow proto tcp from 10.100.102.0/24 to any port 22

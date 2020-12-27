@@ -314,7 +314,7 @@ augroup TSServer
 	autocmd FileType typescript,javascript map <leader>rn <Plug>(coc-rename)
 augroup END
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
+  if (index(['vim', 'help'], &filetype) >= 0)
 	execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
 	call CocActionAsync('doHover')
@@ -326,6 +326,10 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
