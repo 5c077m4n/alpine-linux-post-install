@@ -155,8 +155,8 @@ nmap <C-q> <C-W>q
 nnoremap <leader>] :tabn<CR>
 nnoremap <leader>[ :tabp<CR>
 nnoremap <leader>tl :tabs<CR>
-nnoremap <leader>tn :tab split<CR>
 " Duplicate current tab
+nnoremap <leader>tn :tab split<CR>
 nnoremap <leader>tq :tabclose<CR>
 nnoremap <leader>tQ :tabonly<CR>
 
