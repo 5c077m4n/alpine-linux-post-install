@@ -2,6 +2,8 @@
 " => Basic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set nocompatible
+
 " Make vim cwd the file that is being edited
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -26,7 +28,6 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 """ Misc
 " Return to the last editing point when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-B
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -154,13 +155,13 @@ nnoremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>
 " Switch CWD to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
 
-nnoremap <leader>] :tabn<CR>
-nnoremap <leader>[ :tabp<CR>
+nnoremap <C-]> :tabn<CR>
+nnoremap <C-[> :tabp<CR>
 
 nnoremap <leader>tl :tabs<CR>
-nnoremap <leader>tQ :tabonly<CR>
 nnoremap <leader>td :tab split<CR>
 nnoremap <leader>tq :tabclose<CR>
+nnoremap <leader>tQ :tabonly<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
