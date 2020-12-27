@@ -73,9 +73,11 @@ set ffs=unix,dos,mac
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
-" Avoid garbled characters in Chinese language windows OS
+" Set language to english
 let $LANG='en'
 set langmenu=en
+
+" Reset menus (becuase of the languase set above)
 "source $VIMRUNTIME/delmenu.vim
 "source $VIMRUNTIME/menu.vim
 
@@ -97,15 +99,13 @@ set hid
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
+""" Search
 " Ignore case when searching
 set ignorecase
-
 " When searching try to be smart about cases
 set smartcase
-
 " Highlight search results
 set hlsearch
-
 " Makes search act like search in modern browsers
 set incsearch
 
