@@ -174,8 +174,8 @@ nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
-nmap <C-n>h <C-W>h
-nmap <C-n>v <C-W>v
+nmap <C-n>h :sp<CR>
+nmap <C-n>v :vsp<CR>
 nmap <C-q> <C-W>q
 
 """ Tabs
