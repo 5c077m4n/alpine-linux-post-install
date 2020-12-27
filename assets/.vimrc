@@ -152,13 +152,13 @@ nmap <C-n> <C-W>n
 nmap <C-q> <C-W>q
 
 """ Tabs
-nnoremap <leader>] :tabn<CR>
-nnoremap <leader>[ :tabp<CR>
-nnoremap <leader>tl :tabs<CR>
+nnoremap <silent> <leader>] :tabn<CR>
+nnoremap <silent> <leader>[ :tabp<CR>
+nnoremap <silent> <leader>tl :tabs<CR>
 " Duplicate current tab
-nnoremap <leader>tn :tab split<CR>
-nnoremap <leader>tq :tabclose<CR>
-nnoremap <leader>tQ :tabonly<CR>
+nnoremap <silent> <leader>tn :tab split<CR>
+nnoremap <silent> <leader>tq :tabclose<CR>
+nnoremap <silent> <leader>tQ :tabonly<CR>
 
 """ Buffers
 " Switch CWD to the directory of the open buffer
@@ -192,7 +192,7 @@ if has("mac") || has("macunix")
 	vmap <D-k> <M-k>
 endif
 
-" Delete trailing white space on save
+" Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
 	let save_cursor = getpos(".")
 	let old_query = getreg('/')
