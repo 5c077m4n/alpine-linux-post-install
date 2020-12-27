@@ -6,6 +6,32 @@ if &compatible
 	set nocompatible " must be first line
 endif
 
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 " Make vim cwd the file that is being edited
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -256,51 +282,78 @@ Plug 'itspriddle/vim-shellcheck'
 Plug 'mbbill/undotree'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json']
+""" Coc
+let g:coc_global_extensions = ['coc-json']
+let l:ts_file_types = ['ts', 'tsx', 'js', 'jsx']
+if index(l:ts_file_types, &filetype) != -1
+	let g:coc_global_extensions += ['coc-tsserver']
+endif
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
+	let g:coc_global_extensions += ['coc-prettier']
 endif
 if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
+	let g:coc_global_extensions += ['coc-eslint']
 endif
-
-" Coc TSServer code navigation
+" TSServer code navigation
 augroup TSServer
-    autocmd!
+	autocmd!
 
-    autocmd FileType typescript,javascript nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-    autocmd FileType typescript,javascript nmap <silent> g] <Plug>(coc-diagnostic-next)
+	autocmd FileType typescript,javascript nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+	autocmd FileType typescript,javascript nmap <silent> g] <Plug>(coc-diagnostic-next)
 
-    autocmd FileType typescript,javascript nmap <silent> gd <Plug>(coc-definition)
-    autocmd FileType typescript,javascript nmap <silent> gt <Plug>(coc-type-definition)
-    autocmd FileType typescript,javascript nmap <silent> gi <Plug>(coc-implementation)
-    autocmd FileType typescript,javascript nmap <silent> gr <Plug>(coc-references)
-    " Remap keys for applying codeAction to the current buffer.
-    autocmd FileType typescript,javascript nmap <leader>ac <Plug>(coc-codeaction)
-    " Apply AutoFix to problem on the current line.
-    autocmd FileType typescript,javascript nmap <leader>qf <Plug>(coc-fix-current)
+	autocmd FileType typescript,javascript nmap <silent> gd <Plug>(coc-definition)
+	autocmd FileType typescript,javascript nmap <silent> gt <Plug>(coc-type-definition)
+	autocmd FileType typescript,javascript nmap <silent> gi <Plug>(coc-implementation)
+	autocmd FileType typescript,javascript nmap <silent> gr <Plug>(coc-references)
+	" Remap keys for applying codeAction to the current buffer.
+	autocmd FileType typescript,javascript nmap <leader>ac <Plug>(coc-codeaction)
+	" Apply AutoFix to problem on the current line.
+	autocmd FileType typescript,javascript nmap <leader>qf <Plug>(coc-fix-current)
+	" Highlight the symbol and its references when holding the cursor
+	autocmd CursorHold * silent call CocActionAsync('highlight')
+	" Symbol renaming.
+	autocmd FileType typescript,javascript map <leader>rn <Plug>(coc-rename)
 augroup END
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+	execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+	call CocActionAsync('doHover')
+  else
+	execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Ranger config
+""" Ranger
 let g:ranger_map_keys = 0 " Disable default key mappings
 nnoremap <silent> <leader>r :Ranger<CR>
 
-" Rust vim settings
-let g:rust_clip_command = 'xclip -selection clipboard'
+""" Rust
+if has("mac") || has("macunix")
+	let g:rust_clip_command = 'pbcopy'
+else
+	let g:rust_clip_command = 'xclip -selection clipboard'
+endif
 
-" NERDTree
+""" NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" Undotree config
+""" Undotree
 nnoremap <leader>u :UndotreeToggle<CR>
 if has("persistent_undo")
 	set undodir=$HOME.GetPlugInstallDir()."/.undodir"
 	set undofile
 endif
 
-" Vim racer shortcuts
+""" Racer
 let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let g:racer_insert_paren = 1
 let g:racer_experimental_completer = 1
@@ -313,9 +366,8 @@ augroup Racer
 	autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
 	autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
 augroup END
-set hidden
 
-" FZF
+""" FZF
 nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <leader>f :Rg<CR>
 let g:fzf_action = {
@@ -324,7 +376,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
 \}
 
-" Syntastic settings
+""" Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
