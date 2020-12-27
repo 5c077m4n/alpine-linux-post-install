@@ -23,6 +23,10 @@ nnoremap U <C-r>
 " :W sudo saves the file (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
+""" Misc
+" Return to the last editing point when opening files
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -134,6 +138,7 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " => Windows, tabs & buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""" Windows
 " A simpler way to move between windows
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -141,9 +146,6 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 nnoremap <C-n> <C-W>n
 nnoremap <C-q> <C-W>q
-
-" Return to the last editing point when opening files
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 """ Tabs
 " Opens a new tab with the current buffer's path
@@ -156,6 +158,7 @@ nnoremap <C-[> :tabn<CR>
 
 nnoremap <leader>td :tab split<CR>
 nnoremap <leader>tq :tabclose<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing
