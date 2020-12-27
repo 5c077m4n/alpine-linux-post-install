@@ -202,7 +202,15 @@ map <leader>s? z=
 " => Plugins config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call plug#begin('~/.vim/plugged')
+function! GetPlugInstallDir()
+        if has("nvim")
+                return "~/.config/nvim/plugged"
+        else
+                return "~/.vim/plugged"
+        endif
+endfunction
+ 
+call plug#begin(GetPlugInstallDir())
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
