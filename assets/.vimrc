@@ -135,21 +135,27 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " A simpler way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-map <C-n> <C-W>n
-map <C-q> <C-W>q
-
-" Opens a new tab with the current buffer's path
-map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
-" Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <C-n> <C-W>n
+nnoremap <C-q> <C-W>q
 
 " Return to the last editing point when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+""" Tabs
+" Opens a new tab with the current buffer's path
+nnoremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>
+" Switch CWD to the directory of the open buffer
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
+
+nnoremap <C-]> :tabn<CR>
+nnoremap <C-[> :tabn<CR>
+
+nnoremap <leader>td :tab split<CR>
+nnoremap <leader>tq :tabclose<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing
