@@ -174,6 +174,8 @@ noremap <leader>cd :cd %:p:h<cr>:pwd<CR>
 set tabstop=4
 set shiftwidth=4
 set ai
+set si
+set wrap
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
