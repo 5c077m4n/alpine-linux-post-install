@@ -284,12 +284,12 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Undotree config
 nnoremap <leader>u :UndotreeToggle<CR>
 if has("persistent_undo")
-    set undodir=$HOME."/.vim/.undodir"
-    set undofile
+	set undodir=$HOME.GetPlugInstallDir()."/.undodir"
+	set undofile
 endif
 
 " Vim racer shortcuts
-let g:racer_cmd = "/home/roee/.cargo/bin/racer"
+let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let g:racer_insert_paren = 1
 let g:racer_experimental_completer = 1
 augroup Racer
@@ -302,7 +302,6 @@ augroup Racer
     autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
 augroup END
 set hidden
-let g:racer_cmd = "/home/roee/.cargo/bin/racer"
 
 " FZF
 nnoremap <silent> <C-f> :Files<CR>
