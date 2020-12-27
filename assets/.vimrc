@@ -177,7 +177,7 @@ set si
 set wrap
 
 " Remap VIM 0 to first non-blank character
-map 0 ^
+nnoremap 0 ^
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -192,7 +192,7 @@ if has("mac") || has("macunix")
 	vmap <D-k> <M-k>
 endif
 
-" Delete trailing white space on save, useful for some filetypes ;)
+" Delete trailing white space on save
 fun! CleanExtraSpaces()
 	let save_cursor = getpos(".")
 	let old_query = getreg('/')
