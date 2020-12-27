@@ -160,7 +160,7 @@ nnoremap <leader>tq :tabclose<CR>
 nnoremap <leader>tQ :tabonly<CR>
 
 " Opens a new tab with the current buffer's path
-noremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>/
+noremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>
 
 " Switch CWD to the directory of the open buffer
 noremap <leader>cd :cd %:p:h<cr>:pwd<CR>
