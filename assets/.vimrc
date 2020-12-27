@@ -1,8 +1,10 @@
-set nocompatible " must be first line
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Basic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if &compatible
+	set nocompatible " must be first line
+endif
 
 " Make vim cwd the file that is being edited
 autocmd BufEnter * silent! lcd %:p:h
