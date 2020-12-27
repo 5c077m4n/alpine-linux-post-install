@@ -249,7 +249,7 @@ map <leader>s? z=
 " => Plugins config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! GetPlugInstallDir()
+function! s:get_plug_install_dir() abort
 		if has("nvim")
 				return "~/.config/nvim/plugged"
 		else
@@ -257,7 +257,7 @@ function! GetPlugInstallDir()
 		endif
 endfunction
  
-call plug#begin(GetPlugInstallDir())
+call plug#begin(s:get_plug_install_dir())
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -352,7 +352,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 """ Undotree
 nnoremap <leader>u :UndotreeToggle<CR>
 if has("persistent_undo")
-	set undodir=$HOME.GetPlugInstallDir()."/.undodir"
+	set undodir=$HOME.s:get_plug_install_dir()."/.undodir"
 	set undofile
 endif
 
