@@ -155,11 +155,10 @@ nmap <C-q> <C-W>q
 nnoremap <leader>] :tabn<CR>
 nnoremap <leader>[ :tabp<CR>
 nnoremap <leader>tl :tabs<CR>
+" Duplicate current tab
 nnoremap <leader>tn :tab split<CR>
 nnoremap <leader>tq :tabclose<CR>
 nnoremap <leader>tQ :tabonly<CR>
-" Opens a new tab with the current buffer's path
-nnoremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>
 
 """ Buffers
 " Switch CWD to the directory of the open buffer
