@@ -273,7 +273,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
-Plug 'tomasr/molokai'
+Plug 'flazz/vim-colorschemes'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript', 'typescript'] }
@@ -335,13 +335,13 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 """ Jest
 " Run jest for current project
-command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+command! -nargs=0 Jest :call CocAction('runCommand', 'jest.projectTest')<CR>
 " Run jest for current file
-command! -nargs=0 JestFile :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+command! -nargs=0 JestFile :call CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
 " Run jest for current test
 command! -nargs=0 JestTest :call CocAction('runCommand', 'jest.singleTest')<CR>
 " Init jest in current cwd, require global jest command exists
-command! JestInit :call CocAction('runCommand', 'jest.init')
+command! -nargs=0 JestInit :call CocAction('runCommand', 'jest.init')<CR>
 
 """ Ranger
 let g:ranger_map_keys = 0 " Disable default key mappings
