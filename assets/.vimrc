@@ -169,9 +169,9 @@ nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
-nmap <C-n>h :split<CR>
-nmap <C-n>v :vertical split<CR>
-nmap <C-q> <C-W>q
+nmap <silent> <leader>wh :split<CR>
+nmap <silent> <leader>wv :vertical split<CR>
+nmap <silent> <leader>wq <C-W>q<CR>
 
 """ Tabs
 nnoremap <silent> <leader>] :tabn<CR>
@@ -184,9 +184,9 @@ nnoremap <silent> <leader>tQ :tabonly<CR>
 
 """ Buffers
 " Switch CWD to the directory of the open buffer
-nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
-nnoremap <C-b>b :bnext<CR>
-nnoremap <C-b>f :bprevious<CR>
+nnoremap <silent> <leader>cd :cd %:p:h<cr>:pwd<CR>
+nnoremap <silent> <leader>bf :bnext<CR>
+nnoremap <silent> <leader>bb :bprevious<CR>
 
 " Default split positions
 set splitbelow
