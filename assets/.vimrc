@@ -311,7 +311,7 @@ augroup TSServer
 	autocmd FileType typescript,javascript nmap <silent> gr <Plug>(coc-references)
 	autocmd FileType typescript,javascript nmap <leader>ac <Plug>(coc-codeaction)
 	autocmd FileType typescript,javascript nmap <leader>qf <Plug>(coc-fix-current)
-	autocmd FileType typescript,javascript map <leader>rn <Plug>(coc-rename)
+	autocmd FileType typescript,javascript nmap <leader>rn <Plug>(coc-rename)
 	
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup END
