@@ -280,8 +280,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'elzr/vim-json', { 'for': ['json', 'javascript', 'typescript'] }
-Plug 'neoclide/coc-yaml', { 'for': ['yml', 'yaml']  }
 Plug 'othree/html5.vim', { 'for': ['javascript', 'typescript', 'html'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'javascript', 'typescript', 'html'] }
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -296,9 +294,13 @@ call plug#end()
 colorscheme molokai
 
 """ Coc
-let g:coc_global_extensions = ['coc-json']
-if index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
+let g:coc_global_extensions = []
+if index(['json'], &filetye) != -1 
+	let g:coc_global_extensions += ['coc-json']
+elseif index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
 	let g:coc_global_extensions += ['coc-tsserver', 'coc-jest', 'coc-prettier', 'coc-eslint']
+elseif index(['yml', 'yaml'], &filetype) != -1
+	let g:coc_global_extensions += ['coc-yaml']
 endif
 
 """ TSServer
