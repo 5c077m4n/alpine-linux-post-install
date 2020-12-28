@@ -257,8 +257,7 @@ map <leader>s? z=
 " => Plugins config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""" Coc
-function! s:get_coc_ext() {
+function! s:get_coc_ext()
 	let l:coc_ext = []
 
 	if index(['json'], &filetype) != -1 
@@ -272,7 +271,8 @@ function! s:get_coc_ext() {
 	endif
 
 	return l:coc_ext
-}
+endfunction
+
 function! s:get_plug_install_dir() abort
 	if has("nvim")
 			return "~/.config/nvim/plugged"
