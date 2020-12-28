@@ -295,7 +295,7 @@ colorscheme molokai
 
 """ Coc
 let g:coc_global_extensions = []
-if index(['json'], &filetye) != -1 
+if index(['json'], &filetype) != -1 
 	let g:coc_global_extensions += ['coc-json']
 elseif index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
 	let g:coc_global_extensions += ['coc-tsserver', 'coc-jest', 'coc-prettier', 'coc-eslint']
