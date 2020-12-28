@@ -185,8 +185,8 @@ nnoremap <silent> <leader>tQ :tabonly<CR>
 """ Buffers
 " Switch CWD to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
-nnoremap <C-b>n :bnext<CR>
-nnoremap <C-b>p :bprevious<CR>
+nnoremap <C-b>b :bnext<CR>
+nnoremap <C-b>f :bprevious<CR>
 
 " Default split positions
 set splitbelow
@@ -358,7 +358,7 @@ else
 endif
 
 """ NERDTree
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>tr :NERDTreeToggle<CR>
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
