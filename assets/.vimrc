@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if &compatible
-	set nocompatible " must be first line
+	set nocompatible
 endif
 
 " TextEdit might fail if hidden is not set.
@@ -274,6 +274,8 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript', 'typescript'] }
@@ -288,7 +290,6 @@ Plug 'mbbill/undotree'
 call plug#end()
 
 """ Theme
-syntax on
 colorscheme molokai
 
 """ Coc
