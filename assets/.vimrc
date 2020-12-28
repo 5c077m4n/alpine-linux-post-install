@@ -257,16 +257,34 @@ map <leader>s? z=
 " => Plugins config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""" Coc
+function! s:get_coc_ext() {
+	let l:coc_ext = []
+
+	if index(['json'], &filetype) != -1 
+		let l:coc_ext += ['coc-json']
+	elseif index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
+		let l:coc_ext += ['coc-tsserver', 'coc-jest', 'coc-prettier', 'coc-eslint']
+	elseif index(['yml', 'yaml'], &filetype) != -1
+		let l:coc_ext += ['coc-yaml']
+	elseif index(['rust', 'rs'], &filetype) != -1
+		let l:coc_ext += ['coc-rust-analyzer']
+	endif
+
+	return l:coc_ext
+}
 function! s:get_plug_install_dir() abort
-		if has("nvim")
-				return "~/.config/nvim/plugged"
-		else
-				return "~/.vim/plugged"
-		endif
+	if has("nvim")
+			return "~/.config/nvim/plugged"
+	else
+			return "~/.vim/plugged"
+	endif
 endfunction
+
+let g:coc_global_extensions = s:get_coc_ext()
  
 call plug#begin(s:get_plug_install_dir())
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf.vim'
@@ -292,16 +310,6 @@ call plug#end()
 
 """ Theme
 colorscheme molokai
-
-""" Coc
-let g:coc_global_extensions = []
-if index(['json'], &filetype) != -1 
-	let g:coc_global_extensions += ['coc-json']
-elseif index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
-	let g:coc_global_extensions += ['coc-tsserver', 'coc-jest', 'coc-prettier', 'coc-eslint']
-elseif index(['yml', 'yaml'], &filetype) != -1
-	let g:coc_global_extensions += ['coc-yaml']
-endif
 
 """ TSServer
 augroup TSServer
