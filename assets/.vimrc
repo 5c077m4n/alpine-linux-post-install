@@ -273,6 +273,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
+Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -289,6 +290,8 @@ Plug 'mbbill/undotree'
 call plug#end()
 
 """ Theme
+syntax on
+colorscheme onedark
 let g:airline_theme='murmur'
 
 """ Coc
