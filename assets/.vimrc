@@ -305,32 +305,32 @@ augroup TSServer
 
 	autocmd FileType typescript,javascript nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 	autocmd FileType typescript,javascript nmap <silent> g] <Plug>(coc-diagnostic-next)
-
 	autocmd FileType typescript,javascript nmap <silent> gd <Plug>(coc-definition)
 	autocmd FileType typescript,javascript nmap <silent> gt <Plug>(coc-type-definition)
 	autocmd FileType typescript,javascript nmap <silent> gi <Plug>(coc-implementation)
 	autocmd FileType typescript,javascript nmap <silent> gr <Plug>(coc-references)
 	autocmd FileType typescript,javascript nmap <leader>ac <Plug>(coc-codeaction)
 	autocmd FileType typescript,javascript nmap <leader>qf <Plug>(coc-fix-current)
-	autocmd CursorHold * silent call CocActionAsync('highlight')
 	autocmd FileType typescript,javascript map <leader>rn <Plug>(coc-rename)
+	
+	autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup END
 function! s:show_documentation()
-  if (index(['vim', 'help'], &filetype) >= 0)
-	execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-	call CocActionAsync('doHover')
-  else
-	execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+	if (index(['vim', 'help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
 endfunction
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
