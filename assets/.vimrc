@@ -174,8 +174,8 @@ nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
-nmap <C-n>h :sp<CR>
-nmap <C-n>v :vsp<CR>
+nmap <C-n>h :split<CR>
+nmap <C-n>v :vertical split<CR>
 nmap <C-q> <C-W>q
 
 """ Tabs
@@ -190,6 +190,18 @@ nnoremap <silent> <leader>tQ :tabonly<CR>
 """ Buffers
 " Switch CWD to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
+
+" Default split positions
+set splitbelow
+set splitright
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Terminals
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <C-t>h :terminal<CR>
+nnoremap <C-t>v :vertical terminal<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
