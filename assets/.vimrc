@@ -70,11 +70,6 @@ if $COLORTERM == 'gnome-terminal'
 	set t_Co=256
 endif
 
-try
-	colorscheme delek
-catch
-endtry
-
 set background=dark
 
 " Set extra options when running in GUI mode
@@ -292,6 +287,9 @@ Plug 'tpope/vim-surround'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'mbbill/undotree'
 call plug#end()
+
+""" Theme
+let g:airline_theme='murmur'
 
 """ Coc
 let g:coc_global_extensions = ['coc-json']
