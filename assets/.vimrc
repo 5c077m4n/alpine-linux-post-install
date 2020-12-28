@@ -289,7 +289,7 @@ call plug#end()
 
 """ Theme
 syntax on
-colorscheme monokai
+colorscheme molokai
 
 """ Coc
 let g:coc_global_extensions = ['coc-json']
