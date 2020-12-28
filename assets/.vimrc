@@ -281,6 +281,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript', 'typescript'] }
+Plug 'neoclide/coc-yaml', { 'for': ['yml', 'yaml']  }
 Plug 'othree/html5.vim', { 'for': ['javascript', 'typescript', 'html'] }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'javascript', 'typescript', 'html'] }
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
