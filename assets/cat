@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if &compatible
-	set nocompatible
+	set nocompatible " must be first line
 endif
 
 " TextEdit might fail if hidden is not set.
@@ -185,8 +185,6 @@ nnoremap <silent> <leader>tQ :tabonly<CR>
 """ Buffers
 " Switch CWD to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<CR>
-nnoremap <C-b>n :bnext<CR>
-nnoremap <C-b>p :bprevious<CR>
 
 " Default split positions
 set splitbelow
@@ -276,8 +274,6 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'flazz/vim-colorschemes'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript', 'typescript'] }
@@ -292,6 +288,7 @@ Plug 'mbbill/undotree'
 call plug#end()
 
 """ Theme
+syntax on
 colorscheme molokai
 
 """ Coc
