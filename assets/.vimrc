@@ -298,7 +298,7 @@ call plug#end()
 """ Coc
 let g:coc_global_extensions = ['coc-json']
 if index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
-	let g:coc_global_extensions += ['coc-tsserver']
+	let g:coc_global_extensions += ['coc-tsserver', 'coc-jest']
 endif
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
 	let g:coc_global_extensions += ['coc-prettier']
@@ -306,7 +306,8 @@ endif
 if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
 	let g:coc_global_extensions += ['coc-eslint']
 endif
-" TSServer code navigation
+
+""" TSServer
 augroup TSServer
 	autocmd!
 
@@ -345,6 +346,16 @@ function! s:check_back_space() abort
 endfunction
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+""" Jest
+" Run jest for current project
+command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+" Run jest for current file
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+" Run jest for current test
+nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>
+" Init jest in current cwd, require global jest command exists
+command! JestInit :call CocAction('runCommand', 'jest.init')
 
 """ Ranger
 let g:ranger_map_keys = 0 " Disable default key mappings
