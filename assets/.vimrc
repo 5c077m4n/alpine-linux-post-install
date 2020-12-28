@@ -240,9 +240,7 @@ fun! CleanExtraSpaces()
 	call setreg('/', old_query)
 endfun
 
-if has("autocmd")
-	autocmd BufWritePre *.txt,*.js,*.ts,*.sql,*.py,*.sh, :call CleanExtraSpaces()
-endif
+autocmd BufWritePre *.txt,*.js,*.ts,*.sql,*.py,*.sh, :call CleanExtraSpaces()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -298,13 +296,7 @@ call plug#end()
 """ Coc
 let g:coc_global_extensions = ['coc-json']
 if index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
-	let g:coc_global_extensions += ['coc-tsserver', 'coc-jest']
-endif
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-	let g:coc_global_extensions += ['coc-prettier']
-endif
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-	let g:coc_global_extensions += ['coc-eslint']
+	let g:coc_global_extensions += ['coc-tsserver', 'coc-jest', 'coc-prettier', 'coc-eslint']
 endif
 
 """ TSServer
@@ -318,13 +310,9 @@ augroup TSServer
 	autocmd FileType typescript,javascript nmap <silent> gt <Plug>(coc-type-definition)
 	autocmd FileType typescript,javascript nmap <silent> gi <Plug>(coc-implementation)
 	autocmd FileType typescript,javascript nmap <silent> gr <Plug>(coc-references)
-	" Remap keys for applying codeAction to the current buffer.
 	autocmd FileType typescript,javascript nmap <leader>ac <Plug>(coc-codeaction)
-	" Apply AutoFix to problem on the current line.
 	autocmd FileType typescript,javascript nmap <leader>qf <Plug>(coc-fix-current)
-	" Highlight the symbol and its references when holding the cursor
 	autocmd CursorHold * silent call CocActionAsync('highlight')
-	" Symbol renaming.
 	autocmd FileType typescript,javascript map <leader>rn <Plug>(coc-rename)
 augroup END
 function! s:show_documentation()
