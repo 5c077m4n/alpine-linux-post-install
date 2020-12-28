@@ -273,9 +273,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
-Plug 'joshdick/onedark.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'tomasr/molokai'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript', 'typescript'] }
@@ -291,8 +289,7 @@ call plug#end()
 
 """ Theme
 syntax on
-colorscheme onedark
-let g:airline_theme='murmur'
+colorscheme monokai
 
 """ Coc
 let g:coc_global_extensions = ['coc-json']
