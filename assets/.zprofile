@@ -1,4 +1,4 @@
-PATH="${PATH}:~/.local/bin"
+PATH="${PATH}:${HOME}/.local/bin"
 
 # Rust init
 source "${HOME}/.cargo/env"
