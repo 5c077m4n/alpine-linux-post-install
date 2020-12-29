@@ -264,6 +264,8 @@ function! s:get_coc_ext()
 		let l:coc_ext += ['coc-json']
 	elseif index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
 		let l:coc_ext += ['coc-tsserver', 'coc-jest', 'coc-prettier', 'coc-eslint', 'coc-sql']
+	elseif index(['html', 'css'], &filetype) != -1
+		let l:coc_ext += ['coc-html', 'coc-css', 'coc-prettier']
 	elseif index(['yml', 'yaml'], &filetype) != -1
 		let l:coc_ext += ['coc-yaml']
 	elseif index(['rust', 'rs'], &filetype) != -1
