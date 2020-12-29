@@ -292,6 +292,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() }
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
+Plug 'PhilRunninger/nerdtree-visual-selection'
+Plug 'PhilRunninger/nerdtree-buffer-ops'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
