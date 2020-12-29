@@ -380,10 +380,8 @@ nnoremap <leader>tr :NERDTreeToggle<CR>
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 """ NERDCommneter
-inoremap <silent> <C-/> :NERDCommenterToggle<CR>
-nnoremap <silent> <C-/> :NERDCommenterToggle<CR>
-vnoremap <silent> <C-/> :NERDCommenterToggle<CR>
-let g:NERDCreateDefaultMappings = 1
+map <silent> <C-/> <Plug>:NERDCommenterToggle
+let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDCommentEmptyLines = 1
