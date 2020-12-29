@@ -320,22 +320,20 @@ call plug#end()
 """ Theme
 colorscheme molokai
 
-""" TSServer
+""" Coc
 augroup TSServer
 	autocmd!
-
-	autocmd FileType typescript,javascript,rust nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-	autocmd FileType typescript,javascript,rust nmap <silent> g] <Plug>(coc-diagnostic-next)
-	autocmd FileType typescript,javascript,rust nmap <silent> gd <Plug>(coc-definition)
-	autocmd FileType typescript,javascript,rust nmap <silent> gt <Plug>(coc-type-definition)
-	autocmd FileType typescript,javascript,rust nmap <silent> gi <Plug>(coc-implementation)
-	autocmd FileType typescript,javascript,rust nmap <silent> gr <Plug>(coc-references)
-	autocmd FileType typescript,javascript,rust nmap <leader>ac <Plug>(coc-codeaction)
-	autocmd FileType typescript,javascript,rust nmap <leader>qf <Plug>(coc-fix-current)
-	autocmd FileType typescript,javascript,rust nmap <leader>rn <Plug>(coc-rename)
-	
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup END
+nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> g] <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>ac <Plug>(coc-codeaction)
+nmap <leader>qf <Plug>(coc-fix-current)
+nmap <leader>rn <Plug>(coc-rename)
 function! s:show_documentation()
 	if (index(['vim', 'help'], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
