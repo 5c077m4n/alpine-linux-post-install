@@ -322,15 +322,15 @@ colorscheme molokai
 augroup TSServer
 	autocmd!
 
-	autocmd FileType typescript,javascript nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-	autocmd FileType typescript,javascript nmap <silent> g] <Plug>(coc-diagnostic-next)
-	autocmd FileType typescript,javascript nmap <silent> gd <Plug>(coc-definition)
-	autocmd FileType typescript,javascript nmap <silent> gt <Plug>(coc-type-definition)
-	autocmd FileType typescript,javascript nmap <silent> gi <Plug>(coc-implementation)
-	autocmd FileType typescript,javascript nmap <silent> gr <Plug>(coc-references)
-	autocmd FileType typescript,javascript nmap <leader>ac <Plug>(coc-codeaction)
-	autocmd FileType typescript,javascript nmap <leader>qf <Plug>(coc-fix-current)
-	autocmd FileType typescript,javascript nmap <leader>rn <Plug>(coc-rename)
+	autocmd FileType typescript,javascript,rust nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+	autocmd FileType typescript,javascript,rust nmap <silent> g] <Plug>(coc-diagnostic-next)
+	autocmd FileType typescript,javascript,rust nmap <silent> gd <Plug>(coc-definition)
+	autocmd FileType typescript,javascript,rust nmap <silent> gt <Plug>(coc-type-definition)
+	autocmd FileType typescript,javascript,rust nmap <silent> gi <Plug>(coc-implementation)
+	autocmd FileType typescript,javascript,rust nmap <silent> gr <Plug>(coc-references)
+	autocmd FileType typescript,javascript,rust nmap <leader>ac <Plug>(coc-codeaction)
+	autocmd FileType typescript,javascript,rust nmap <leader>qf <Plug>(coc-fix-current)
+	autocmd FileType typescript,javascript,rust nmap <leader>rn <Plug>(coc-rename)
 	
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup END
@@ -385,8 +385,8 @@ nnoremap <silent> <leader>ts :NERDTreeFind<CR>
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 """ NERDCommneter
-map <silent> <C-/> <Plug>:NERDCommenterToggle
-let g:NERDCreateDefaultMappings = 0
+map <silent> <C-/> <Plug>:NERDCommenterToggle<CR>
+let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDCommentEmptyLines = 1
@@ -404,15 +404,15 @@ endif
 let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let g:racer_insert_paren = 1
 let g:racer_experimental_completer = 1
-augroup Racer
-	autocmd!
-	autocmd FileType rust nmap <buffer> gd		   <Plug>(rust-def)
-	autocmd FileType rust nmap <buffer> gs		   <Plug>(rust-def-split)
-	autocmd FileType rust nmap <buffer> gx		   <Plug>(rust-def-vertical)
-	autocmd FileType rust nmap <buffer> gt		   <Plug>(rust-def-tab)
-	autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
-	autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
-augroup END
+" augroup Racer
+	" autocmd!
+	" autocmd FileType rust nmap <buffer> gd		   <Plug>(rust-def)
+	" autocmd FileType rust nmap <buffer> gs		   <Plug>(rust-def-split)
+	" autocmd FileType rust nmap <buffer> gx		   <Plug>(rust-def-vertical)
+	" autocmd FileType rust nmap <buffer> gt		   <Plug>(rust-def-tab)
+	" autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+	" autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
+" augroup END
 
 """ FZF
 nnoremap <silent> <C-f> :Files<CR>
