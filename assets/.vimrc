@@ -268,7 +268,7 @@ function! s:get_coc_ext()
 		let l:coc_ext += ['coc-yaml']
 	elseif index(['rust', 'rs'], &filetype) != -1
 		let l:coc_ext += ['coc-rust-analyzer']
-	elseif index(['shell'], &filetype) != -1
+	elseif index(['shell', 'sh'], &filetype) != -1
 		let l:coc_ext += ['coc-sh']
 	elseif index(['sql'], &filetype) != -1
 		let l:coc_ext += ['coc-sql']
