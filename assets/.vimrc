@@ -56,6 +56,8 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 """ Misc
 " Return to the last editing point when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" Mouse support
+set mouse=a
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -261,10 +263,10 @@ function! s:get_coc_ext()
 	let l:coc_ext = []
 
 	if index(['json'], &filetype) != -1 
-		let l:coc_ext += ['coc-json']
+		let l:coc_ext += ['coc-json', 'coc-prettier']
 	elseif index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
 		let l:coc_ext += ['coc-tsserver', 'coc-jest', 'coc-prettier', 'coc-eslint', 'coc-sql']
-	elseif index(['html', 'css'], &filetype) != -1
+	elseif index(['html', 'css', 'scss', 'less'], &filetype) != -1
 		let l:coc_ext += ['coc-html', 'coc-css', 'coc-prettier']
 	elseif index(['yml', 'yaml'], &filetype) != -1
 		let l:coc_ext += ['coc-yaml']
@@ -305,10 +307,6 @@ Plug 'scrooloose/syntastic'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-Plug 'othree/html5.vim', { 'for': ['javascript', 'typescript', 'html'] }
-Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'javascript', 'typescript', 'html'] }
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'francoiscabrol/ranger.vim'
 Plug 'townk/vim-autoclose'
@@ -324,16 +322,17 @@ colorscheme molokai
 augroup TSServer
 	autocmd!
 	autocmd CursorHold * silent call CocActionAsync('highlight')
+
+	autocmd FileType typescript,javascript,css,html nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+	autocmd FileType typescript,javascript,css,html nmap <silent> g] <Plug>(coc-diagnostic-next)
+	autocmd FileType typescript,javascript,css,html nmap <silent> gd <Plug>(coc-definition)
+	autocmd FileType typescript,javascript,css,html nmap <silent> gt <Plug>(coc-type-definition)
+	autocmd FileType typescript,javascript,css,html nmap <silent> gi <Plug>(coc-implementation)
+	autocmd FileType typescript,javascript,css,html nmap <silent> gr <Plug>(coc-references)
+	autocmd FileType typescript,javascript,css,html nmap <leader>ac <Plug>(coc-codeaction)
+	autocmd FileType typescript,javascript,css,html nmap <leader>qf <Plug>(coc-fix-current)
+	autocmd FileType typescript,javascript,css,html nmap <leader>rn <Plug>(coc-rename)
 augroup END
-nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-nmap <silent> g] <Plug>(coc-diagnostic-next)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>ac <Plug>(coc-codeaction)
-nmap <leader>qf <Plug>(coc-fix-current)
-nmap <leader>rn <Plug>(coc-rename)
 function! s:show_documentation()
 	if (index(['vim', 'help'], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
@@ -404,15 +403,15 @@ endif
 let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let g:racer_insert_paren = 1
 let g:racer_experimental_completer = 1
-" augroup Racer
-	" autocmd!
-	" autocmd FileType rust nmap <buffer> gd		   <Plug>(rust-def)
-	" autocmd FileType rust nmap <buffer> gs		   <Plug>(rust-def-split)
-	" autocmd FileType rust nmap <buffer> gx		   <Plug>(rust-def-vertical)
-	" autocmd FileType rust nmap <buffer> gt		   <Plug>(rust-def-tab)
-	" autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
-	" autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
-" augroup END
+augroup Racer
+	autocmd!
+	autocmd FileType rust nmap <buffer> gd		   <Plug>(rust-def)
+	autocmd FileType rust nmap <buffer> gs		   <Plug>(rust-def-split)
+	autocmd FileType rust nmap <buffer> gx		   <Plug>(rust-def-vertical)
+	autocmd FileType rust nmap <buffer> gt		   <Plug>(rust-def-tab)
+	autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+	autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
+augroup END
 
 """ FZF
 nnoremap <silent> <C-f> :Files<CR>
