@@ -189,6 +189,7 @@ nnoremap <silent> <leader>tQ :tabonly<CR>
 nnoremap <silent> <leader>cd :cd %:p:h<cr>:pwd<CR>
 nnoremap <silent> <leader>bf :bnext<CR>
 nnoremap <silent> <leader>bb :bprevious<CR>
+nnoremap <silent> <leader>bl :buffers<CR>
 
 " Default split positions
 set splitbelow
