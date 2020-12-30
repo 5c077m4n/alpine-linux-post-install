@@ -190,7 +190,7 @@ nnoremap <silent> <leader>cd :cd %:p:h<cr>:pwd<CR>
 nnoremap <silent> <leader>bf :bnext<CR>
 nnoremap <silent> <leader>bb :bprevious<CR>
 nnoremap <silent> <leader>bl :buffers<CR>
-nnoremap <silent> <Leader>bj :buffers<CR>:buffer<Space>
+nnoremap <Leader>bj :buffers<CR>:buffer<Space>
 
 " Default split positions
 set splitbelow
