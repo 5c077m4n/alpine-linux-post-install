@@ -186,7 +186,7 @@ nnoremap <silent> <leader>tQ :tabonly<CR>
 
 """ Buffers
 " Switch CWD to the directory of the open buffer
-nnoremap <silent> <leader>cd :cd %:p:h<cr>:pwd<CR>
+nnoremap <silent> <leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <silent> <leader>bf :bnext<CR>
 nnoremap <silent> <leader>bb :bprevious<CR>
 nnoremap <silent> <leader>bl :buffers<CR>
@@ -220,10 +220,10 @@ set wrap
 nnoremap 0 ^
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+nmap <M-j> mz:m+<CR>`z
+nmap <M-k> mz:m-2<CR>`z
+vmap <M-j> :m'>+<CR>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<CR>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
 	nmap <D-j> <M-j>
@@ -249,7 +249,7 @@ autocmd BufWritePre *.txt,*.js,*.ts,*.sql,*.py,*.sh, :call CleanExtraSpaces()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Toggle spell checking
-map <leader>ss :setlocal spell!<cr>
+map <leader>ss :setlocal spell!<CR>
 
 map <leader>sn ]s
 map <leader>sp [s
@@ -325,15 +325,15 @@ augroup TSServer
 	autocmd!
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 
-	autocmd FileType typescript,javascript,css,html nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-	autocmd FileType typescript,javascript,css,html nmap <silent> g] <Plug>(coc-diagnostic-next)
-	autocmd FileType typescript,javascript,css,html nmap <silent> gd <Plug>(coc-definition)
-	autocmd FileType typescript,javascript,css,html nmap <silent> gt <Plug>(coc-type-definition)
-	autocmd FileType typescript,javascript,css,html nmap <silent> gi <Plug>(coc-implementation)
-	autocmd FileType typescript,javascript,css,html nmap <silent> gr <Plug>(coc-references)
-	autocmd FileType typescript,javascript,css,html nmap <leader>ac <Plug>(coc-codeaction)
-	autocmd FileType typescript,javascript,css,html nmap <leader>qf <Plug>(coc-fix-current)
-	autocmd FileType typescript,javascript,css,html nmap <leader>rn <Plug>(coc-rename)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> g] <Plug>(coc-diagnostic-next)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> gd <Plug>(coc-definition)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> gt <Plug>(coc-type-definition)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> gi <Plug>(coc-implementation)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> gr <Plug>(coc-references)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>ac <Plug>(coc-codeaction)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>qf <Plug>(coc-fix-current)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>rn <Plug>(coc-rename)
 augroup END
 function! s:show_documentation()
 	if (index(['vim', 'help'], &filetype) >= 0)
