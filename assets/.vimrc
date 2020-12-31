@@ -59,6 +59,11 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Mouse support
 set mouse=a
 
+" Automatically causes vim to reload files which have been written on disk but not modified in the buffer since the last write from vim
+set autoread
+" Trigger autoread when changing buffers inside while inside vim
+autocmd FocusGained,BufEnter * :checktime
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
