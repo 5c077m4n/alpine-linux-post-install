@@ -206,8 +206,8 @@ set splitright
 " => Terminals
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nnoremap <C-t>h :terminal<CR>
-nnoremap <C-t>v :vertical terminal<CR>
+nnoremap <silent> <C-t>h :terminal<CR>
+nnoremap <silent> <C-t>v :vertical terminal<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
