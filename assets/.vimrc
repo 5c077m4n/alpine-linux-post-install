@@ -320,6 +320,7 @@ Plug 'townk/vim-autoclose'
 Plug 'tpope/vim-surround'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'mbbill/undotree'
+Plug 'eliba2/vim-node-inspect'
 call plug#end()
 
 """ Theme
@@ -340,6 +341,17 @@ augroup TSServer
 	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>qf <Plug>(coc-fix-current)
 	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>rn <Plug>(coc-rename)
 augroup END
+" Node inspect
+augroup NodeDebug
+	autocmd!
+
+	autocmd FileType typescript,javascript nnoremap <F4> :NodeInspectStart<CR>
+	autocmd FileType typescript,javascript nnoremap <F5> :NodeInspectRun<CR>
+	autocmd FileType typescript,javascript nnoremap <F6> :NodeInspectConnect("127.0.0.1:9229")<CR>
+	autocmd FileType typescript,javascript nnoremap <F7> :NodeInspectStepInto<CR>
+	autocmd FileType typescript,javascript nnoremap <F8> :NodeInspectStepOver<CR>
+	autocmd FileType typescript,javascript nnoremap <F9> :NodeInspectToggleBreakpoint<CR>
+	autocmd FileType typescript,javascript nnoremap <F10> :NodeInspectStop<CR>
 function! s:show_documentation()
 	if (index(['vim', 'help'], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
