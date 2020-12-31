@@ -191,7 +191,7 @@ nnoremap <silent> <leader>tQ :tabonly<CR>
 
 """ Buffers
 " Switch CWD to the directory of the open buffer
-nnoremap <silent> <leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <silent> <leader>bf :bnext<CR>
 nnoremap <silent> <leader>bb :bprevious<CR>
 nnoremap <silent> <leader>bl :buffers<CR>
