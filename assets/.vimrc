@@ -64,6 +64,8 @@ set autoread
 " Trigger autoread when changing buffers inside while inside vim
 autocmd FocusGained,BufEnter * :checktime
 
+set modifiable
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
