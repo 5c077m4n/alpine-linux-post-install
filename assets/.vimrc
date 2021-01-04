@@ -427,7 +427,7 @@ let g:NERDToggleCheckAllLines = 1
 """ Undotree
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
 if has("persistent_undo")
-	set undodir=$HOME."undo_dir"
+	set undodir=<SID>get_plug_install_dir()."/.undodir"
 	set undofile
 endif
 
