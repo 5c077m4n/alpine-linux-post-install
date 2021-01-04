@@ -463,4 +463,4 @@ let g:syntastic_check_on_wq = 0
 """ Floaterm
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-g:floaterm_autoclose = 1
+let g:floaterm_autoclose = 1
