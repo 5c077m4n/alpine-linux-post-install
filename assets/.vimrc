@@ -461,6 +461,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 """ Floaterm
+nnoremap   <silent>   <F10>    :FloatermNew<CR>
+tnoremap   <silent>   <F10>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F11>    :FloatermNext<CR>
+tnoremap   <silent>   <F11>    <C-\><C-n>:FloatermNext<CR>
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_autoclose = 1
