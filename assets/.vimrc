@@ -44,7 +44,16 @@ filetype plugin on
 filetype indent on
 
 let mapleader = " "
-nnoremap <silent><leader>1 :e ~/.vimrc<CR>
+
+function! s:get_vimrc_path()
+	if has('nvim')
+		return $HOME . '/.config/nvim/init.vim'
+	else 
+		return $HOME . '/.vimrc'
+	endif
+endfunction
+
+nnoremap <silent><leader>1 :e <C-R>=s:get_vimrc_path()<CR>
 nnoremap <leader>2 :source ~/.vimrc<CR>
 nnoremap <silent><leader>3 :PlugInstall<CR>
 " Map redo to Ctrl+u
@@ -256,12 +265,11 @@ autocmd BufWritePre *.txt,*.js,*.ts,*.sql,*.py,*.sh, :call CleanExtraSpaces()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Toggle spell checking
-map <leader>ss :setlocal spell!<CR>
-
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
+nmap <leader>ss :setlocal spell!<CR>
+nmap <leader>sn ]s
+nmap <leader>sp [s
+nmap <leader>sa zg
+nmap <leader>s? z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
