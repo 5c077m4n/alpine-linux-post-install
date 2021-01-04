@@ -401,6 +401,7 @@ let NERDTreeShowHidden=1
 nnoremap <silent> <leader>tt :NERDTreeToggle<CR>
 nnoremap <silent> <leader>tf :NERDTreeFocus<CR>
 nnoremap <silent> <leader>ts :NERDTreeFind<CR>
+nnoremap <silent> <leader>tr :NERDTreeRefreshRoot<CR>
 autocmd FileType nerdtree nmap <buffer> <left> u
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
