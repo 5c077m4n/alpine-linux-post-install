@@ -53,7 +53,7 @@ function! s:get_vimrc_path()
 	endif
 endfunction
 
-nnoremap <silent><leader>1 :e <C-R>=s:get_vimrc_path()<CR>
+nnoremap <silent><leader>1 :e <C-R>=<SID>get_vimrc_path()<CR>
 nnoremap <leader>2 :source ~/.vimrc<CR>
 nnoremap <silent><leader>3 :PlugInstall<CR>
 " Map redo to Ctrl+u
@@ -306,9 +306,9 @@ function! s:get_plug_install_dir() abort
 	endif
 endfunction
 
-let g:coc_global_extensions = s:get_coc_ext()
+let g:coc_global_extensions = <SID>get_coc_ext()
  
-call plug#begin(s:get_plug_install_dir())
+call plug#begin(<SID>get_plug_install_dir())
 Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -427,7 +427,7 @@ let g:NERDToggleCheckAllLines = 1
 """ Undotree
 nnoremap <leader>u :UndotreeToggle<CR>
 if has("persistent_undo")
-	set undodir=$HOME.s:get_plug_install_dir()."/.undodir"
+	set undodir=$HOME.<SID>get_plug_install_dir()."/.undodir"
 	set undofile
 endif
 
