@@ -425,9 +425,9 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 """ Undotree
-nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
 if has("persistent_undo")
-	set undodir=$HOME.<SID>get_plug_install_dir()."/.undodir"
+	set undodir=$HOME."undo_dir"
 	set undofile
 endif
 
