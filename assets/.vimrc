@@ -292,9 +292,9 @@ endfunction
 
 function! s:get_plug_install_dir() abort
 	if has("nvim")
-			return "~/.config/nvim/plugged"
+			return $HOME."/.config/nvim/plugged"
 	else
-			return "~/.vim/plugged"
+			return $HOME."/.vim/plugged"
 	endif
 endfunction
 
@@ -323,6 +323,7 @@ Plug 'tpope/vim-surround'
 Plug 'itspriddle/vim-shellcheck'
 Plug 'mbbill/undotree'
 Plug 'eliba2/vim-node-inspect'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 """ Theme
@@ -407,7 +408,7 @@ autocmd FileType nerdtree nmap <buffer> <left> u
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 """ NERDCommneter
-map <silent> <C-/> <Plug>:NERDCommenterToggle<CR>
+nnoremap <silent> <C-/> <Plug>:NERDCommenterToggle<CR>
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -450,3 +451,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+""" Floaterm
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+g:floaterm_autoclose = 1
