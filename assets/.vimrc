@@ -356,13 +356,13 @@ augroup END
 augroup NodeDebug
 	autocmd!
 
-	autocmd FileType typescript,javascript nnoremap <F4> :NodeInspectStart<CR>
-	autocmd FileType typescript,javascript nnoremap <F5> :NodeInspectRun<CR>
-	autocmd FileType typescript,javascript nnoremap <F6> :NodeInspectConnect("127.0.0.1:9229")<CR>
-	autocmd FileType typescript,javascript nnoremap <F7> :NodeInspectStepInto<CR>
-	autocmd FileType typescript,javascript nnoremap <F8> :NodeInspectStepOver<CR>
-	autocmd FileType typescript,javascript nnoremap <F9> :NodeInspectToggleBreakpoint<CR>
-	autocmd FileType typescript,javascript nnoremap <F10> :NodeInspectStop<CR>
+	autocmd FileType typescript,javascript nnoremap <F2> :NodeInspectStart<CR>
+	autocmd FileType typescript,javascript nnoremap <F3> :NodeInspectRun<CR>
+	autocmd FileType typescript,javascript nnoremap <F4> :NodeInspectConnect("127.0.0.1:9229")<CR>
+	autocmd FileType typescript,javascript nnoremap <F5> :NodeInspectStepInto<CR>
+	autocmd FileType typescript,javascript nnoremap <F6> :NodeInspectStepOver<CR>
+	autocmd FileType typescript,javascript nnoremap <F7> :NodeInspectToggleBreakpoint<CR>
+	autocmd FileType typescript,javascript nnoremap <F8> :NodeInspectStop<CR>
 function! s:show_documentation()
 	if (index(['vim', 'help'], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
@@ -461,10 +461,12 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 """ Floaterm
-nnoremap   <silent>   <F10>    :FloatermNew<CR>
-tnoremap   <silent>   <F10>    <C-\><C-n>:FloatermNew<CR>
-nnoremap   <silent>   <F11>    :FloatermNext<CR>
-tnoremap   <silent>   <F11>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F9>     :FloatermPrev<CR>
+tnoremap   <silent>   <F9>     <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F10>    :FloatermNext<CR>
+tnoremap   <silent>   <F10>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F11>    :FloatermNew<CR>
+tnoremap   <silent>   <F11>    <C-\><C-n>:FloatermNew<CR>
 nnoremap   <silent>   <F12>   :FloatermToggle<CR>
 tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 let g:floaterm_autoclose = 1
