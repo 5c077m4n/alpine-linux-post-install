@@ -351,8 +351,17 @@ augroup TSServer
 	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>ac <Plug>(coc-codeaction)
 	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>qf <Plug>(coc-fix-current)
 	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>rn <Plug>(coc-rename)
+	autocmd FileType typescript,javascript,css,html,json,sql xmap <leader>qr <Plug>(coc-format-selected)
+	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>qr <Plug>(coc-format-selected)
 augroup END
-" Node inspect
+" format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+" fold current buffer.
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+" organize imports of the current buffer.
+command! -nargs=0 OrgImp :call CocAction('runCommand', 'editor.action.organizeImport')
+
+""" Node inspect
 augroup NodeDebug
 	autocmd!
 
