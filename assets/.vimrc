@@ -40,8 +40,7 @@ set number
 set relativenumber
 
 " Enable filetype plugins
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 let mapleader = " "
 
@@ -287,8 +286,8 @@ function! s:get_coc_ext()
 		let l:coc_ext += ['coc-html', 'coc-css', 'coc-prettier']
 	elseif index(['yml', 'yaml'], &filetype) != -1
 		let l:coc_ext += ['coc-yaml']
-	elseif index(['rust', 'rs'], &filetype) != -1
-		let l:coc_ext += ['coc-rust-analyzer']
+	" elseif index(['rust', 'rs'], &filetype) != -1
+		" let l:coc_ext += ['coc-rust-analyzer']
 	elseif index(['shell', 'sh'], &filetype) != -1
 		let l:coc_ext += ['coc-sh']
 	elseif index(['sql'], &filetype) != -1
