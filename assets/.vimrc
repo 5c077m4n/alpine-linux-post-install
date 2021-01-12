@@ -218,6 +218,7 @@ set splitright
 
 nnoremap <silent> <C-t>h :terminal<CR>
 nnoremap <silent> <C-t>v :vertical terminal<CR>
+tnoremap <silent> <ESC> <C-\><C-n>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -286,7 +287,7 @@ function! s:get_coc_ext()
 		let l:coc_ext += ['coc-html', 'coc-css']
 	elseif index(['yml', 'yaml'], &filetype) != -1
 		let l:coc_ext += ['coc-yaml']
-	" elseif index(['rust', 'rs'], &filetype) != -1
+	" elseif index(['rust'], &filetype) != -1
 		" let l:coc_ext += ['coc-rust-analyzer']
 	elseif index(['shell', 'sh'], &filetype) != -1
 		let l:coc_ext += ['coc-sh']
