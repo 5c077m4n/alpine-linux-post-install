@@ -66,7 +66,7 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 " Return to the last editing point when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " Mouse support
-set mouse=a
+set mouse=i
 
 " Automatically causes vim to reload files which have been written on disk but not modified in the buffer since the last write from vim
 set autoread
@@ -313,9 +313,9 @@ call plug#begin(<SID>get_plug_install_dir())
 Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': { -> coc#util#install() } }
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/nerdcommenter'
 Plug 'PhilRunninger/nerdtree-visual-selection'
 Plug 'PhilRunninger/nerdtree-buffer-ops'
+Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -426,7 +426,7 @@ autocmd FileType nerdtree nmap <buffer> <left> u
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 """ NERDCommneter
-nnoremap <silent> <C-/> :NERDCommenterToggle<CR>
+nnoremap <leader>/ :call NERDComment('x', 'toggle')<CR>
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
