@@ -55,7 +55,7 @@ endfunction
 nnoremap <expr> <leader>1 ":edit ".<SID>get_vimrc_path()."<CR>"
 nnoremap <expr> <leader>2 ":source ".<SID>get_vimrc_path()."<CR>"
 nnoremap <silent> <leader>3 :PlugInstall<CR>
-nnoremap <silent> <leader>4 :PlugUpdate<CR>
+nnoremap <silent> <leader>4 :PlugUpgrade<CR>:PlugUpdate<CR>:CocUpdate<CR>
 " Map redo to Ctrl+u
 nnoremap U <C-r>
 
@@ -275,8 +275,8 @@ function! s:get_coc_ext()
 		let l:coc_ext += ['coc-html', 'coc-css']
 	elseif index(['yml', 'yaml'], &filetype) != -1
 		let l:coc_ext += ['coc-yaml']
-	" elseif index(['rust'], &filetype) != -1
-		" let l:coc_ext += ['coc-rust-analyzer']
+	elseif index(['rust'], &filetype) != -1
+		let l:coc_ext += ['coc-rust-analyzer']
 	elseif index(['shell', 'sh'], &filetype) != -1
 		let l:coc_ext += ['coc-sh']
 	elseif index(['sql'], &filetype) != -1
