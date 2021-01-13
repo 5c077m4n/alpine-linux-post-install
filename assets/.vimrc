@@ -52,9 +52,10 @@ function! s:get_vimrc_path()
 	endif
 endfunction
 
-nnoremap <silent><leader>1 :e <C-R>=<SID>get_vimrc_path()<CR>
-nnoremap <leader>2 :source ~/.vimrc<CR>
-nnoremap <silent><leader>3 :PlugInstall<CR>
+nnoremap <expr> <leader>1 ":edit ".<SID>get_vimrc_path()."<CR>"
+nnoremap <expr> <leader>2 ":source ".<SID>get_vimrc_path()."<CR>"
+nnoremap <silent> <leader>3 :PlugInstall<CR>
+nnoremap <silent> <leader>4 :PlugUpdate<CR>
 " Map redo to Ctrl+u
 nnoremap U <C-r>
 
