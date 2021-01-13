@@ -330,17 +330,17 @@ augroup TSServer
 	autocmd!
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> g] <Plug>(coc-diagnostic-next)
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> gd <Plug>(coc-definition)
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> gt <Plug>(coc-type-definition)
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> gi <Plug>(coc-implementation)
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <silent> gr <Plug>(coc-references)
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>ac <Plug>(coc-codeaction)
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>qf <Plug>(coc-fix-current)
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>rn <Plug>(coc-rename)
-	autocmd FileType typescript,javascript,css,html,json,sql xmap <leader>qr <Plug>(coc-format-selected)
-	autocmd FileType typescript,javascript,css,html,json,sql nmap <leader>qr <Plug>(coc-format-selected)
+	autocmd FileType typescript,javascript,css,html,sql nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+	autocmd FileType typescript,javascript,css,html,sql nmap <silent> g] <Plug>(coc-diagnostic-next)
+	autocmd FileType typescript,javascript,css,html,sql nmap <silent> gd <Plug>(coc-definition)
+	autocmd FileType typescript,javascript,css,html,sql nmap <silent> gt <Plug>(coc-type-definition)
+	autocmd FileType typescript,javascript,css,html,sql nmap <silent> gi <Plug>(coc-implementation)
+	autocmd FileType typescript,javascript,css,html,sql nmap <silent> gr <Plug>(coc-references)
+	autocmd FileType typescript,javascript,css,html,sql nmap <leader>ac <Plug>(coc-codeaction)
+	autocmd FileType typescript,javascript,css,html,sql nmap <leader>qf <Plug>(coc-fix-current)
+	autocmd FileType typescript,javascript,css,html,sql nmap <leader>rn <Plug>(coc-rename)
+	autocmd FileType typescript,javascript,css,html,sql xmap <leader>qr <Plug>(coc-format-selected)
+	autocmd FileType typescript,javascript,css,html,sql nmap <leader>qr <Plug>(coc-format-selected)
 augroup END
 " format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -428,7 +428,7 @@ if has("persistent_undo")
 	set undofile
 endif
 
-""" Racer
+"" Racer
 let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let g:racer_insert_paren = 1
 let g:racer_experimental_completer = 1
