@@ -183,13 +183,13 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 """ Windows
 " A shorter way to move between windows
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <C-h> <C-W>h
-nmap <C-l> <C-W>l
-nmap <silent> <leader>wh :split<CR>
-nmap <silent> <leader>wv :vertical split<CR>
-nmap <silent> <leader>wq <C-W>q<CR>
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <silent> <leader>wh :split<CR>
+nnoremap <silent> <leader>wv :vertical split<CR>
+nnoremap <silent> <leader>wq <C-W>q<CR>
 
 """ Tabs
 nnoremap <silent> <leader>] :tabn<CR>
@@ -206,7 +206,7 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <silent> <leader>bf :bnext<CR>
 nnoremap <silent> <leader>bb :bprevious<CR>
 nnoremap <silent> <leader>bl :buffers<CR>
-nnoremap <Leader>bj :buffers<CR>:buffer<Space>
+nnoremap <leader>bj :buffers<CR>:buffer<Space>
 
 " Default split positions
 set splitbelow
@@ -235,19 +235,6 @@ set wrap
 
 " Remap VIM 0 to first non-blank character
 nnoremap 0 ^
-
-" Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <M-j> mz:m+<CR>`z
-nmap <M-k> mz:m-2<CR>`z
-vmap <M-j> :m'>+<CR>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<CR>`>my`<mzgv`yo`z
-
-if has("mac") || has("macunix")
-	nmap <D-j> <M-j>
-	nmap <D-k> <M-k>
-	vmap <D-j> <M-j>
-	vmap <D-k> <M-k>
-endif
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
