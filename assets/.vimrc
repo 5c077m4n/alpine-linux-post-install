@@ -219,7 +219,7 @@ set splitright
 
 nnoremap <silent> <C-t>h :terminal<CR>
 nnoremap <silent> <C-t>v :vertical terminal<CR>
-tnoremap <silent> <ESC> <C-\><C-n>
+tnoremap <silent> <Esc> <C-\><C-n>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -406,7 +406,6 @@ nnoremap <silent> <leader>tt :NERDTreeToggle<CR>
 nnoremap <silent> <leader>tf :NERDTreeFocus<CR>
 nnoremap <silent> <leader>ts :NERDTreeFind<CR>
 nnoremap <silent> <leader>tr :NERDTreeRefreshRoot<CR>
-autocmd FileType nerdtree nmap <buffer> <left> u
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
@@ -436,8 +435,8 @@ augroup Racer
 	autocmd FileType rust nmap <buffer> gs		   <Plug>(rust-def-split)
 	autocmd FileType rust nmap <buffer> gx		   <Plug>(rust-def-vertical)
 	autocmd FileType rust nmap <buffer> gt		   <Plug>(rust-def-tab)
-	autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
-	autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
+	autocmd FileType rust nmap <buffer> K <Plug>(rust-doc)
+	autocmd FileType rust nmap <buffer> <leader>K <Plug>(rust-doc-tab)
 augroup END
 
 """ FZF
