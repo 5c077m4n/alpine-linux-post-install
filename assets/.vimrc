@@ -34,6 +34,11 @@ endif
 
 " Make vim cwd the file that is being edited
 autocmd BufEnter * silent! lcd %:p:h
+" Add rust filetyp
+augroup filetype_rust
+    autocmd!
+    autocmd BufReadPost *.rs setlocal filetype=rust
+augroup END
 
 " Line numbering
 set number
