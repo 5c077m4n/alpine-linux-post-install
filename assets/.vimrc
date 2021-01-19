@@ -324,21 +324,21 @@ call plug#end()
 colorscheme molokai
 
 """ Coc
-augroup TSServer
+augroup CocCommands
 	autocmd!
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 
-	autocmd FileType typescript,javascript,css,html,sql nmap <silent> g[ <Plug>(coc-diagnostic-prev)
-	autocmd FileType typescript,javascript,css,html,sql nmap <silent> g] <Plug>(coc-diagnostic-next)
-	autocmd FileType typescript,javascript,css,html,sql nmap <silent> gd <Plug>(coc-definition)
-	autocmd FileType typescript,javascript,css,html,sql nmap <silent> gt <Plug>(coc-type-definition)
-	autocmd FileType typescript,javascript,css,html,sql nmap <silent> gi <Plug>(coc-implementation)
-	autocmd FileType typescript,javascript,css,html,sql nmap <silent> gr <Plug>(coc-references)
-	autocmd FileType typescript,javascript,css,html,sql nmap <leader>ac <Plug>(coc-codeaction)
-	autocmd FileType typescript,javascript,css,html,sql nmap <leader>qf <Plug>(coc-fix-current)
-	autocmd FileType typescript,javascript,css,html,sql nmap <leader>rn <Plug>(coc-rename)
-	autocmd FileType typescript,javascript,css,html,sql xmap <leader>qr <Plug>(coc-format-selected)
-	autocmd FileType typescript,javascript,css,html,sql nmap <leader>qr <Plug>(coc-format-selected)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <silent> g] <Plug>(coc-diagnostic-next)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <silent> gd <Plug>(coc-definition)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <silent> gt <Plug>(coc-type-definition)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <silent> gi <Plug>(coc-implementation)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <silent> gr <Plug>(coc-references)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <leader>ac <Plug>(coc-codeaction)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <leader>qf <Plug>(coc-fix-current)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <leader>rn <Plug>(coc-rename)
+	autocmd FileType typescript,javascript,css,html,sql,rust xmap <leader>qr <Plug>(coc-format-selected)
+	autocmd FileType typescript,javascript,css,html,sql,rust nmap <leader>qr <Plug>(coc-format-selected)
 augroup END
 " format current buffer.
 command! -nargs=0 Format :call CocAction('format')
