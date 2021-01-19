@@ -42,6 +42,12 @@ cp ./assets/rc.conf ~/.config/ranger/rc.conf
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sudo sh
 
+cd /tmp || exit 1
+git clone https://github.com/rust-analyzer/rust-analyzer.git
+cd rust-analyzer || exit 1
+cargo xtask install --server
+cd - || exit 1
+
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting"
