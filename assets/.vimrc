@@ -280,7 +280,7 @@ function! s:get_coc_ext()
 	elseif index(['sql'], &filetype) != -1
 		let l:coc_ext += ['coc-sql']
 	elseif index(['rust'], &filetype) != -1
-		let l:coc_ext += ['coc-rls']
+		let l:coc_ext += ['coc-rust-analyzer']
 	endif
 
 	return l:coc_ext
@@ -368,9 +368,6 @@ function! s:show_documentation()
 	endif
 endfunction
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
