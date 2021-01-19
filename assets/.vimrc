@@ -329,7 +329,7 @@ call plug#end()
 colorscheme molokai
 
 """ Coc
-augroup CocCommands
+augroup commands_coc
 	autocmd!
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 
@@ -353,7 +353,7 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 command! -nargs=0 OrgImp :call CocAction('runCommand', 'editor.action.organizeImport')
 
 """ Node inspect
-augroup NodeDebug
+augroup commands_node_inspect
 	autocmd!
 
 	autocmd FileType typescript,javascript nnoremap <F2> :NodeInspectStart<CR>
