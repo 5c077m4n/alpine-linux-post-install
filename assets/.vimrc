@@ -305,8 +305,6 @@ Plug 'PhilRunninger/nerdtree-buffer-ops'
 Plug 'scrooloose/nerdcommenter'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'flazz/vim-colorschemes'
@@ -426,20 +424,6 @@ if has("persistent_undo")
 	execute 'set undodir='.$HOME.'/.undodir'
 	set undofile
 endif
-
-"" Racer
-let g:racer_cmd = $HOME."/.cargo/bin/racer"
-let g:racer_insert_paren = 1
-let g:racer_experimental_completer = 1
-augroup Racer
-	autocmd!
-	autocmd FileType rust nmap <buffer> gd		   <Plug>(rust-def)
-	autocmd FileType rust nmap <buffer> gs		   <Plug>(rust-def-split)
-	autocmd FileType rust nmap <buffer> gx		   <Plug>(rust-def-vertical)
-	autocmd FileType rust nmap <buffer> gt		   <Plug>(rust-def-tab)
-	autocmd FileType rust nmap <buffer> K <Plug>(rust-doc)
-	autocmd FileType rust nmap <buffer> <leader>K <Plug>(rust-doc-tab)
-augroup END
 
 """ FZF
 nnoremap <silent> <C-f> :Files<CR>
