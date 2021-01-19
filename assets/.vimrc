@@ -64,8 +64,8 @@ nnoremap <silent> <leader>4 :PlugUpgrade<CR>:PlugUpdate<CR>:CocUpdate<CR>
 " Map redo to Ctrl+u
 nnoremap U <C-r>
 
-" :W sudo saves the file (useful for handling the permission-denied error)
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+" Sudo saves the file (useful for handling the permission-denied error)
+command! SudoSave execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 """ Misc
 " Return to the last editing point when opening files
