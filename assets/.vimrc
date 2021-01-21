@@ -418,7 +418,7 @@ let g:NERDCompactSexyComs = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
-nnoremap <leader>/ :NERDCommenterToggle<CR>
+nnoremap <leader>/ <plug>NERDCommenterToggle<CR>
 
 """ Undotree
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
