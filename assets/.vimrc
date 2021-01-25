@@ -323,6 +323,7 @@ Plug 'itspriddle/vim-shellcheck'
 Plug 'mbbill/undotree'
 Plug 'eliba2/vim-node-inspect'
 Plug 'voldikss/vim-floaterm'
+Plug 'MattesGroeger/vim-bookmarks'
 call plug#end()
 
 """ Theme
