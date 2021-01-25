@@ -152,6 +152,8 @@ set smartcase
 set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
+" This unsets the last search pattern register by hitting return
+nnoremap <CR> :noh<CR><CR>
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
