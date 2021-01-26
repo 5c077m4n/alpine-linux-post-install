@@ -288,6 +288,8 @@ function! s:get_coc_ext()
 		let l:coc_ext += ['coc-sql']
 	elseif index(['rust'], &filetype) != -1
 		let l:coc_ext += ['coc-rust-analyzer']
+	elseif index(['toml'], &filetype) != -1
+		let l:coc_ext += ['coc-toml']
 	endif
 
 	return l:coc_ext
