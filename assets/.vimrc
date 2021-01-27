@@ -71,7 +71,11 @@ command! SudoSave execute 'w !sudo tee % > /dev/null' <bar> edit!
 " Return to the last editing point when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 " Mouse support
-set mouse=i
+if has('mouse')
+	set mouse=i
+endif
+" copy to clipboard where pressing ctrl-c in visual mode
+vnoremap <C-c> "+y
 
 " Automatically causes vim to reload files which have been written on disk but not modified in the buffer since the last write from vim
 set autoread
@@ -320,7 +324,12 @@ Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'francoiscabrol/ranger.vim'
+
+" install ranger plugin when not in macvim
+if !has('gui_macvim')
+	Plug 'francoiscabrol/ranger.vim'
+endif
+
 Plug 'townk/vim-autoclose'
 Plug 'tpope/vim-surround'
 Plug 'itspriddle/vim-shellcheck'
