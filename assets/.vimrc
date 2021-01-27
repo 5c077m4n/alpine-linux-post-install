@@ -300,10 +300,12 @@ function! s:get_coc_ext()
 endfunction
 
 function! s:get_plug_install_dir() abort
-	if has("nvim")
-			return $HOME."/.config/nvim/plugged"
+	if has('nvim')
+		return $HOME."/.config/nvim/plugged"
+	elseif has('gui_macvim')
+		return $HOME."/config/macvim/plugged"
 	else
-			return $HOME."/.vim/plugged"
+		return $HOME."/.vim/plugged"
 	endif
 endfunction
 
