@@ -432,10 +432,10 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
 """ NERDCommneter
-let g:NERDCreateDefaultMappings = 1
+let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
-let g:NERDCommentEmptyLines = 1
+let g:NERDCommentEmptyLines = 0
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 nmap <leader>/ <plug>NERDCommenterToggle<CR>
