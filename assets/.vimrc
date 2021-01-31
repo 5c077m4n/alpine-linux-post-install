@@ -76,6 +76,8 @@ if has('mouse')
 endif
 " copy to clipboard where pressing ctrl-c in visual mode
 vnoremap <C-c> "+y
+" paste from clipboard where pressing ctrl-v in insert mode
+inoremap <C-p> "+p
 
 " Automatically causes vim to reload files which have been written on disk but not modified in the buffer since the last write from vim
 set autoread
