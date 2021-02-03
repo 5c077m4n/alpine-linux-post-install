@@ -289,7 +289,7 @@ function! s:get_coc_ext()
 
 	if &filetype ==? 'json'
 		let l:coc_ext += ['coc-json']
-	elseif index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
+	elseif index(['ts', 'tsx', 'typescriptreact', 'js', 'jsx', 'javascriptreact'], &filetype) != -1
 		let l:coc_ext += ['coc-tsserver', 'coc-jest', 'coc-eslint', 'coc-sql']
 	elseif &filetype ==? 'html'
 		let l:coc_ext += ['coc-html']
