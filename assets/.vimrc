@@ -65,7 +65,7 @@ nnoremap <silent> <leader>4 :PlugUpgrade<CR>:PlugUpdate<CR>:CocUpdate<CR>
 nnoremap U <C-r>
 
 " Sudo saves the file (useful for handling the permission-denied error)
-command! SudoSave execute 'w !sudo tee % > /dev/null' <bar> edit!
+command! SudoW execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 """ Misc
 " Return to the last editing point when opening files
@@ -259,6 +259,13 @@ fun! CleanExtraSpaces()
 endfun
 
 autocmd BufWritePre *.txt,*.js,*.ts,*.sql,*.py,*.sh, :call CleanExtraSpaces()
+
+" Indentation commands
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
