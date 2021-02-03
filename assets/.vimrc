@@ -287,21 +287,23 @@ nmap <leader>s? z=
 function! s:get_coc_ext()
 	let l:coc_ext = ['coc-prettier']
 
-	if index(['json'], &filetype) != -1 
+	if &filetype ==? 'json'
 		let l:coc_ext += ['coc-json']
 	elseif index(['ts', 'tsx', 'js', 'jsx'], &filetype) != -1
 		let l:coc_ext += ['coc-tsserver', 'coc-jest', 'coc-eslint', 'coc-sql']
-	elseif index(['html', 'css', 'scss', 'less'], &filetype) != -1
-		let l:coc_ext += ['coc-html', 'coc-css']
+	elseif &filetype ==? 'html'
+		let l:coc_ext += ['coc-html']
+	elseif index(['css', 'scss', 'less'], &filetype) != -1
+		let l:coc_ext += ['coc-css']
 	elseif index(['yml', 'yaml'], &filetype) != -1
 		let l:coc_ext += ['coc-yaml']
 	elseif index(['shell', 'sh'], &filetype) != -1
 		let l:coc_ext += ['coc-sh']
-	elseif index(['sql'], &filetype) != -1
+	elseif &filetype ==? 'sql'
 		let l:coc_ext += ['coc-sql']
-	elseif index(['rust'], &filetype) != -1
+	elseif &filetype ==? 'rust'
 		let l:coc_ext += ['coc-rust-analyzer']
-	elseif index(['toml'], &filetype) != -1
+	elseif &filetype ==? 'toml'
 		let l:coc_ext += ['coc-toml']
 	endif
 
